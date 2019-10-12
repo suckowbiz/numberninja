@@ -1,9 +1,8 @@
 # 1x1Pass
 
-1x1Pass is a command line application that challenges arithmetic problems to improve mental calculation skills. It
- askes to solve little multiplication table problems and the inverse division.
+1x1Pass is a command line application that challenges arithmetic problems. It requests to solve multiplication table and appropriate division problems.
  
-It runs for a required duration. Mistakes are remembered and will be repeated randomly in between.
+1x1Pass runs for a requested (e.g. 20 minutes). Mistakes are remembered and will be repeated randomly in between.
  
 ## Motivation
 
@@ -13,6 +12,7 @@ This app has been developed to help 3rd grade German school students to remember
 
 - ask multiplication problems in range little multiplication tables (1x1 ... 10x10)
 - ask division problems that apply to the multiplication tables
+- help to train those problems that where answered wrong
 
 ## Non-Goals
 
