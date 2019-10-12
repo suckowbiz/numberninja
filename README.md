@@ -17,7 +17,7 @@ This app has been developed to help 3rd grade German school students to remember
 ## Non-Goals
 
 - higher level mathematical challenges
-- no trivial tasks such as division by one or multiplication by one or zero.
+- trivial tasks such as division by one or multiplication by one or zero.
 
 ## How to Run
 
