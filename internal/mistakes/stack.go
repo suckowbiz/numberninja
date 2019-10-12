@@ -6,6 +6,7 @@ import (
 	"github.com/suckowbiz/mentalbreak/internal/calculus"
 )
 
+// Mistakes implements a LIFO stack.
 type Mistakes struct {
 	stack []calculus.Problemer
 }
@@ -23,6 +24,6 @@ func (m *Mistakes) Pop() (calculus.Problemer, error) {
 		return nil, errors.New("empty stack")
 	}
 	var res calculus.Problemer
-	res, m.stack = m.stack[m.Len()-1], m.stack[:m.Len()-1]
+	res, m.stack = m.stack[0], m.stack[1:]
 	return res, nil
 }

@@ -15,14 +15,15 @@ func NewLesson() Lesson {
 }
 
 // Run initiates and runs a lesson until duration elapsed.
-func (l Lesson) Run(io interaction.Cmdliner, observer Observable) {
+func (l Lesson) Run(io interaction.CmdLiner, observer Observable) {
 	var problem calculus.Problemer
+	io.PrintStart()
 	for {
 		observer.RoundTick()
 		if observer.RepeatRound() {
 			problem, _ = observer.PopMissed()
 		} else {
-			problem = calculus.NewProblem([]calculus.Arithmetic{calculus.Multiplication, calculus.Division})
+			problem = calculus.GenerateProblem([]calculus.Arithmetic{calculus.Multiplication, calculus.Division})
 		}
 
 		answer := io.AskProblem(observer.Rounds(), problem.Operator(), problem.LOperand(), problem.ROperand())

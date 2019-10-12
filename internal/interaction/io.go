@@ -9,8 +9,8 @@ import (
 	"time"
 )
 
-// Cmdliner interacts via command line.
-type Cmdliner interface {
+// CmdLiner interacts via command line.
+type CmdLiner interface {
 	AskProblem(loop int, operator rune, left, right int) int
 	PrintDone(count, mistakes int)
 	PrintFailure(correctAnswer int)
@@ -25,8 +25,8 @@ type CmdLine struct {
 	reader *bufio.Reader
 }
 
-// NewCmdLine constructs a new Cmdliner
-func NewCmdLine() Cmdliner {
+// NewCmdLine constructs a new CmdLiner
+func NewCmdLine() CmdLiner {
 	return &CmdLine{reader: bufio.NewReader(os.Stdin)}
 }
 

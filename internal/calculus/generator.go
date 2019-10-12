@@ -5,63 +5,56 @@ import (
 	"time"
 )
 
-// Problemer groups tasks that needs to be executed on a mathematical problem.
-type Problemer interface {
-	Solve() int
-	Operator() rune
-	LOperand() int
-	ROperand() int
-}
+const (
+	minFactor             = 2
+	maxFactor             = 10
+	maxDivisor            = 100
+	maxDividend           = 10
+	maxQuotient = 10
+	minDividendAndDivisor = 2
+)
 
-// ProblemGenerator generates mathematical problems.
-type ProblemGenerator struct {
-}
+// GenerateProblem generates a new problem from the given set of arithmetic calculation methods.
+func GenerateProblem(arithmetic []Arithmetic) Problemer {
+	i := throwTheDice(0, len(arithmetic))
+	a := arithmetic[i]
 
-// NewProblem generates a new problem from the given set of arithmetic calculation methods.
-func NewProblem(calculationTypes []Arithmetic) Problemer {
-	i := throwTheDice(0, len(calculationTypes))
-	t := calculationTypes[i]
-	var result Problemer
-	switch t {
-	case Division:
-		left, right := findDivisors(2, 100, 10)
-		result = Divide{Problem{
-			operator: '/',
-			left:     left,
-			right:    right,
-		}}
+	var l, r int
+	switch arithmetic[i] {
 	case Multiplication:
-		left := throwTheDice(2, 10)
-		right := throwTheDice(2, 10)
-		result = Multiply{Problem{
-			operator: '*',
-			left:     left,
-			right:    right,
-		}}
+		l, r = findFactors(minFactor, maxFactor)
+	case Division:
+		l, r = findDivisorAndDividend(minDividendAndDivisor, maxDivisor, maxDividend)
 	default:
 		panic("Not implemented, yet.")
 	}
+
+	result := NewProblem(a, l, r)
 	return result
 }
 
-func findDivisors(min, lmax, rmax int) (int, int) {
-	var left, right int
+func findFactors(min, max int) (int, int) {
+	return throwTheDice(min, max), throwTheDice(min, max)
+}
+
+func findDivisorAndDividend(min, maxDivisor, maxDividend int) (int, int) {
+	var divisor, dividend int
 	if min == 0 {
-		// avoid division by zero
-		min = 1
+		panic("division by zero is illegal")
 	}
-	for {
-		left = throwTheDice(min, lmax)
-		right = throwTheDice(min, rmax)
-		// meet the requirements of little multiplication table
-		if left > right && left%right == 0 && left/right <= 10 {
-			break
-		}
+	// meet the requirements of little multiplication table
+	for divisor <= dividend || divisor%dividend != 0 || divisor/dividend > maxQuotient {
+		divisor = throwTheDice(min, maxDivisor)
+		dividend = throwTheDice(min, maxDividend)
 	}
-	return left, right
+	return divisor, dividend
 }
 
 func throwTheDice(min, max int) int {
+	if min == max {
+		return min
+	}
+
 	r := rand.New(rand.NewSource(time.Now().UnixNano()))
 	var n int
 	for {

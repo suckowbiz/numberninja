@@ -1,9 +1,30 @@
 package calculus
 
+// Problemer groups tasks that needs to be executed on a mathematical problem.
+type Problemer interface {
+	Solve() int
+	Operator() rune
+	LOperand() int
+	ROperand() int
+}
+
 // Problem represents a mathematical calculation problem.
 type Problem struct {
 	operator    rune
 	left, right int
+}
+
+// NewProblem creates a new problem of given input.
+func NewProblem(operator Arithmetic, left, right int) Problemer {
+	return [...]Problemer{Multiply{Problem{
+		operator: operator.Rune(),
+		left:     left,
+		right:    right,
+	}}, Divide{Problem{
+		operator: operator.Rune(),
+		left:     left,
+		right:    right,
+	}}}[operator]
 }
 
 // LOperand returns the left side operand.

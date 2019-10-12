@@ -15,6 +15,5 @@ func main() {
 	duration := io.ReadDuration()
 	observer := school.NewObserver(duration, repeatModulus)
 
-	io.PrintStart()
 	school.NewLesson().Run(io, observer)
 }
