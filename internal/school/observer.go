@@ -33,7 +33,7 @@ type observer struct {
 func NewObserver(duration time.Duration, repeatModulus int) Observable {
 	return &observer{
 		round:         0,
-		started:       time.Time{},
+		started:       time.Now(),
 		mistakes:      mistakes.Mistakes{},
 		duration:      duration,
 		repeatModulus: repeatModulus,

@@ -13,7 +13,7 @@ import (
 type CmdLiner interface {
 	AskProblem(loop int, operator rune, left, right int) int
 	PrintDone(count, mistakes int)
-	PrintFailure(correctAnswer int)
+	PrintFailure()
 	PrintSuccess()
 	ReadInt() int
 	ReadDuration() time.Duration
@@ -38,8 +38,8 @@ func (i *CmdLine) AskProblem(loop int, operator rune, left, right int) int {
 }
 
 // PrintFailure outputs a failure message.
-func (i *CmdLine) PrintFailure(correctAnswer int) {
-	fmt.Printf("Oh, das war nicht richtig! Richtig ist: %d", correctAnswer)
+func (i *CmdLine) PrintFailure() {
+	fmt.Printf("Oh, das war nicht richtig!")
 }
 
 // PrintDone outputs a completion message.

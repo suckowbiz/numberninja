@@ -33,7 +33,7 @@ func (l Lesson) Run(io interaction.CmdLiner, observer Observable) {
 				break
 			}
 		} else {
-			io.PrintFailure(problem.Solve())
+			io.PrintFailure()
 			observer.PushMissed(problem)
 		}
 	}
