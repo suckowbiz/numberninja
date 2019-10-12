@@ -71,7 +71,7 @@ func Test_findFactors(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			got, got1 := findFactors(tt.args.min, tt.args.max)
+			got, got1 := randFactors(tt.args.min, tt.args.max)
 			assert.Contains(t, tt.want, got)
 			assert.Contains(t, tt.want, got1)
 		})
@@ -103,7 +103,7 @@ func Test_findDivisorAndDividend(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			got, got1 := findDivisorAndDividend(tt.args.min, tt.args.maxDivisor, tt.args.maxDividend)
+			got, got1 := randDivisorAndDividend(tt.args.min, tt.args.maxDivisor, tt.args.maxDividend)
 			assert.GreaterOrEqual(t, got, got1)
 			assert.Contains(t, tt.want, got)
 			assert.Contains(t, tt.want1, got1)

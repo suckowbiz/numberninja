@@ -10,8 +10,8 @@ const (
 	maxFactor             = 10
 	maxDivisor            = 100
 	maxDividend           = 10
-	maxQuotient = 10
-	minDividendAndDivisor = 2
+	maxQuotient           = 10
+	minDivisorAndDividend = 2
 )
 
 // GenerateProblem generates a new problem from the given set of arithmetic calculation methods.
@@ -22,9 +22,9 @@ func GenerateProblem(arithmetic []Arithmetic) Problemer {
 	var l, r int
 	switch arithmetic[i] {
 	case Multiplication:
-		l, r = findFactors(minFactor, maxFactor)
+		l, r = randFactors(minFactor, maxFactor)
 	case Division:
-		l, r = findDivisorAndDividend(minDividendAndDivisor, maxDivisor, maxDividend)
+		l, r = randDivisorAndDividend(minDivisorAndDividend, maxDivisor, maxDividend)
 	default:
 		panic("Not implemented, yet.")
 	}
@@ -33,11 +33,11 @@ func GenerateProblem(arithmetic []Arithmetic) Problemer {
 	return result
 }
 
-func findFactors(min, max int) (int, int) {
+func randFactors(min, max int) (int, int) {
 	return throwTheDice(min, max), throwTheDice(min, max)
 }
 
-func findDivisorAndDividend(min, maxDivisor, maxDividend int) (int, int) {
+func randDivisorAndDividend(min, maxDivisor, maxDividend int) (int, int) {
 	var divisor, dividend int
 	if min == 0 {
 		panic("division by zero is illegal")
