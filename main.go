@@ -1,8 +1,8 @@
 package main
 
 import (
-	"github.com/suckowbiz/1x1Pass/internal/interaction"
-	"github.com/suckowbiz/1x1Pass/internal/school"
+	"github.com/suckowbiz/1x1pass/internal/interaction"
+	"github.com/suckowbiz/1x1pass/internal/school"
 )
 
 const (
