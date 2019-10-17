@@ -3,9 +3,9 @@ package school
 import (
 	"time"
 
-	"github.com/suckowbiz/mentalbreak/internal/calculus"
+	"github.com/suckowbiz/1x1pass/internal/calculus"
 
-	"github.com/suckowbiz/mentalbreak/internal/mistakes"
+	"github.com/suckowbiz/1x1pass/internal/mistakes"
 )
 
 // Observable is a thing that remembers statistics and facts about the current lesson.

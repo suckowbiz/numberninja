@@ -1,5 +1,7 @@
 all: tests tidy binary
 
+
+
 .PHONY: test
 test: tests
 

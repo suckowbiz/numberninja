@@ -1,8 +1,8 @@
 package school
 
 import (
-	"github.com/suckowbiz/mentalbreak/internal/calculus"
-	"github.com/suckowbiz/mentalbreak/internal/interaction"
+	"github.com/suckowbiz/1x1pass/internal/calculus"
+	"github.com/suckowbiz/1x1pass/internal/interaction"
 )
 
 // Lesson represents a school lesson.

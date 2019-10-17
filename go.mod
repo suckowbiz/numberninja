@@ -1,4 +1,4 @@
-module github.com/suckowbiz/mentalbreak
+module github.com/suckowbiz/1x1pass
 
 go 1.13
 

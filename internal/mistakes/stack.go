@@ -3,7 +3,7 @@ package mistakes
 import (
 	"errors"
 
-	"github.com/suckowbiz/mentalbreak/internal/calculus"
+	"github.com/suckowbiz/1x1pass/internal/calculus"
 )
 
 // Mistakes implements a LIFO stack.
