@@ -7,7 +7,7 @@
 
 - run for a requested time (e.g. 20 minutes)
 - ask multiplication table problems (multiplication and division)
-- help to train those problems that where the answered wrong
+- help to train those problems that where answered wrong
 
 ## How to Run
 
