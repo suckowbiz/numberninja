@@ -1,7 +1,7 @@
 # 1x1Pass
 
 1x1Pass is a command line application to train multiplication tables. It has been developed to help 3rd grade German
- school students to get "1x1 Pass" by solving multiplication table problems for 20min every day.
+ school students to get "1x1 Pass" by solving multiplication table problems.
 
 ## Features
 
