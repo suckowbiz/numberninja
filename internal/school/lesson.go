@@ -15,7 +15,7 @@ func NewLesson() Lesson {
 }
 
 // Run initiates and runs a lesson until duration elapsed.
-func (l Lesson) Run(io interaction.CmdLiner, observer Observable) {
+func (l Lesson) Run(io interaction.CmdLiner, observer Observable, mode interaction.Mode) {
 	var problem calculus.Problemer
 	io.PrintStart()
 	for {
@@ -23,7 +23,23 @@ func (l Lesson) Run(io interaction.CmdLiner, observer Observable) {
 		if observer.RepeatRound() {
 			problem, _ = observer.PopMissed()
 		} else {
-			problem = calculus.GenerateProblem([]calculus.Arithmetic{calculus.Multiplication, calculus.Division})
+			switch mode {
+			case interaction.Multiplication:
+				problem = calculus.GenerateProblem([]calculus.Arithmetic{calculus.Multiplication})
+			case interaction.Addition:
+				problem = calculus.GenerateProblem([]calculus.Arithmetic{calculus.Addition})
+			case interaction.Subtraction:
+				problem = calculus.GenerateProblem([]calculus.Arithmetic{calculus.Subtraction})
+			case interaction.Division:
+				problem = calculus.GenerateProblem([]calculus.Arithmetic{calculus.Division})
+			case interaction.MultiplicationAndDivision:
+				problem = calculus.GenerateProblem([]calculus.Arithmetic{calculus.Multiplication, calculus.Division})
+			case interaction.AdditionAndSubtraction:
+				problem = calculus.GenerateProblem([]calculus.Arithmetic{calculus.Addition, calculus.Subtraction})
+			case interaction.All:
+				problem = calculus.GenerateProblem([]calculus.Arithmetic{calculus.Multiplication, calculus.Division, calculus.Addition,
+					calculus.Subtraction})
+			}
 		}
 
 		answer := io.AskProblem(observer.Rounds(), problem.Operator(), problem.LOperand(), problem.ROperand())

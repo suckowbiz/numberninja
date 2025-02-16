@@ -13,7 +13,8 @@ const (
 func main() {
 	io := interaction.NewCmdLine()
 	duration := io.ReadDuration()
+	mode := io.ReadArithmetic()
 	observer := school.NewObserver(duration, repeatModulus)
 
-	school.NewLesson().Run(io, observer)
+	school.NewLesson().Run(io, observer, mode)
 }

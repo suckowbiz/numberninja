@@ -16,15 +16,25 @@ type Problem struct {
 
 // NewProblem creates a new problem of given input.
 func NewProblem(operator Arithmetic, left, right int) Problemer {
-	return [...]Problemer{Multiply{Problem{
-		operator: operator.Rune(),
-		left:     left,
-		right:    right,
-	}}, Divide{Problem{
-		operator: operator.Rune(),
-		left:     left,
-		right:    right,
-	}}}[operator]
+	return [...]Problemer{
+		Multiply{Problem{
+			operator: operator.Rune(),
+			left:     left,
+			right:    right,
+		}}, Divide{Problem{
+			operator: operator.Rune(),
+			left:     left,
+			right:    right,
+		}},
+		Add{Problem{
+			operator: operator.Rune(),
+			left:     left,
+			right:    right,
+		}}, Subtract{Problem{
+			operator: operator.Rune(),
+			left:     left,
+			right:    right,
+		}}}[operator]
 }
 
 // LOperand returns the left side operand.
@@ -60,4 +70,20 @@ type Divide struct {
 // Solve solves the division and returns the quotient.
 func (d Divide) Solve() int {
 	return d.left / d.right
+}
+
+type Add struct {
+	Problem
+}
+
+func (a Add) Solve() int {
+	return a.left + a.right
+}
+
+type Subtract struct {
+	Problem
+}
+
+func (s Subtract) Solve() int {
+	return s.left - s.right
 }

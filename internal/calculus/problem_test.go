@@ -125,3 +125,55 @@ func TestDivide_Solve(t *testing.T) {
 		})
 	}
 }
+
+func TestAdd_Solve(t *testing.T) {
+	type fields struct {
+		Problem Add
+	}
+	tests := []struct {
+		name   string
+		fields fields
+		want   int
+	}{
+		{
+			name: "Verify addition works as expected",
+			fields: fields{Add{Problem{
+				left:  4,
+				right: 2,
+			}}},
+			want: 6,
+		},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			got := tt.fields.Problem.Solve()
+			assert.Equal(t, tt.want, got)
+		})
+	}
+}
+
+func TestSubtract_Solve(t *testing.T) {
+	type fields struct {
+		Problem Subtract
+	}
+	tests := []struct {
+		name   string
+		fields fields
+		want   int
+	}{
+		{
+			name: "Verify subtraction works as expected 1",
+			fields: fields{Subtract{Problem{
+				left:  4,
+				right: 2,
+			}}},
+			want: 2,
+		},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			got := tt.fields.Problem.Solve()
+			assert.Equal(t, tt.want, got)
+		})
+	}
+}

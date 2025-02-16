@@ -1,7 +1,5 @@
 all: tests tidy binary
 
-
-
 .PHONY: test
 test: tests
 
@@ -24,6 +22,6 @@ binary:
 	CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build \
 		-a \
 		-ldflags '-w -extldflags "-static"' \
-		-o 1x1Pass \
+		-o numberninja \
 		.
 	tar -cf 1x1Pass.tar 1x1Pass

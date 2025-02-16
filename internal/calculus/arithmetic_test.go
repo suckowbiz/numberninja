@@ -22,6 +22,16 @@ func TestArithmetic_Rune(t *testing.T) {
 			a:    Division,
 			want: '/',
 		},
+		{
+			name: "Verify addition has operator '+'",
+			a:    Addition,
+			want: '+',
+		},
+		{
+			name: "Verify subtraction has operator '/'",
+			a:    Subtraction,
+			want: '-',
+		},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {

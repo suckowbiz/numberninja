@@ -12,6 +12,11 @@ const (
 	maxDividend           = 10
 	maxQuotient           = 10
 	minDivisorAndDividend = 2
+	minMinuend            = 2
+	maxMinuend            = 10
+	minAddend             = 1
+	maxAddend             = 9
+	maxSum                = 10
 )
 
 // GenerateProblem generates a new problem from the given set of arithmetic calculation methods.
@@ -25,6 +30,10 @@ func GenerateProblem(arithmetic []Arithmetic) Problemer {
 		l, r = randFactors(minFactor, maxFactor)
 	case Division:
 		l, r = randDivisorAndDividend(minDivisorAndDividend, maxDivisor, maxDividend)
+	case Subtraction:
+		l, r = randMinuendAndSubtrahend(minMinuend, maxMinuend)
+	case Addition:
+		l, r = randAddends(minAddend, maxAddend, maxSum)
 	default:
 		panic("Not implemented, yet.")
 	}
@@ -48,6 +57,29 @@ func randDivisorAndDividend(min, maxDivisor, maxDividend int) (int, int) {
 		dividend = throwTheDice(min, maxDividend)
 	}
 	return divisor, dividend
+}
+
+func randMinuendAndSubtrahend(minMinuend, maxMinuend int) (int, int) {
+	var minuend, subtrahend int
+	if minMinuend < 2 {
+		panic("minuend must be at least 2 to avoid a subtraction to zero")
+	}
+	// meet the requirements of elementary school
+	for minuend <= subtrahend {
+		minuend = throwTheDice(minMinuend, maxMinuend)
+		subtrahend = throwTheDice(1, minuend-1)
+	}
+	return minuend, subtrahend
+}
+
+func randAddends(minAddend, maxAddend, maxSum int) (int, int) {
+	var lAddend, rAddend int
+	// meet the requirements of little multiplication table
+	for lAddend == 0 || rAddend == 0 || lAddend+rAddend > maxSum {
+		lAddend = throwTheDice(minAddend, maxAddend)
+		rAddend = throwTheDice(minAddend, maxAddend)
+	}
+	return lAddend, rAddend
 }
 
 func throwTheDice(min, max int) int {

@@ -25,6 +25,16 @@ func TestGenerateProblem(t *testing.T) {
 			args: args{[]Arithmetic{Division}},
 			want: '/',
 		},
+		{
+			name: "Verify returns only possible arithmetic",
+			args: args{[]Arithmetic{Addition}},
+			want: '+',
+		},
+		{
+			name: "Verify returns only possible arithmetic",
+			args: args{[]Arithmetic{Subtraction}},
+			want: '-',
+		},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
@@ -107,6 +117,80 @@ func Test_findDivisorAndDividend(t *testing.T) {
 			assert.GreaterOrEqual(t, got, got1)
 			assert.Contains(t, tt.want, got)
 			assert.Contains(t, tt.want1, got1)
+		})
+	}
+}
+
+func Test_findAddends(t *testing.T) {
+	type args struct {
+		maxSum    int
+		minAddend int
+		maxAddend int
+	}
+	tests := []struct {
+		name            string
+		args            args
+		acceptedAddends []int
+	}{
+		{
+			name: "Verify addends are in expected range",
+			args: args{
+				maxSum:    10,
+				minAddend: 1,
+				maxAddend: 9,
+			},
+			acceptedAddends: []int{1, 2, 3, 4, 5, 6, 7, 8, 9},
+		},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			laddend, raddend := randAddends(tt.args.minAddend, tt.args.maxAddend, tt.args.maxAddend)
+			assert.GreaterOrEqual(t, laddend, tt.args.minAddend)
+			assert.LessOrEqual(t, laddend, tt.args.maxAddend)
+
+			assert.GreaterOrEqual(t, raddend, tt.args.minAddend)
+			assert.LessOrEqual(t, raddend, tt.args.maxAddend)
+
+			assert.NotZero(t, laddend)
+			assert.NotZero(t, raddend)
+
+			assert.Contains(t, tt.acceptedAddends, laddend)
+			assert.Contains(t, tt.acceptedAddends, raddend)
+		})
+	}
+}
+
+func Test_findMinuendAndSubtrahend(t *testing.T) {
+	type args struct {
+		minMinuend int
+		maxMinuend int
+	}
+	tests := []struct {
+		name                string
+		args                args
+		acceptedMinuends    []int
+		acceptedSubtrahends []int
+	}{
+		{
+			name: "Verify minuend and subtrahend are in expected range",
+			args: args{
+				minMinuend: 2,
+				maxMinuend: 9,
+			},
+			acceptedMinuends:    []int{2, 3, 4, 5, 6, 7, 8, 9, 10},
+			acceptedSubtrahends: []int{1, 2, 3, 4, 5, 6, 7, 8, 9},
+		},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			minuend, subtrahend := randMinuendAndSubtrahend(tt.args.minMinuend, tt.args.maxMinuend)
+			assert.GreaterOrEqual(t, minuend, tt.args.minMinuend)
+			assert.LessOrEqual(t, minuend, tt.args.maxMinuend)
+
+			assert.Greater(t, minuend, subtrahend)
+
+			assert.NotZero(t, minuend)
+			assert.NotZero(t, subtrahend)
 		})
 	}
 }

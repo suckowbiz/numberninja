@@ -1,19 +1,27 @@
-# 1x1Pass
+# NumberNinja
 
-1x1Pass is a command line application to train multiplication tables. It has been developed to help 3rd grade German
- school students to get "1x1 Pass" by solving multiplication table problems.
+NumberNinja is a command-line math training program designed for elementary school students to practice basic arithmetic in German. The program supports addition, subtraction, multiplication, and division, offering a customizable and interactive experience.
 
 ## Features
 
-- run for a requested time (e.g. 20 minutes)
-- ask multiplication table problems (multiplication and division)
-- help to train those problems that where answered wrong
+Features
+
+- Multiplication: Practice times tables from 1×1 up to 10×10.
+- Division: Solve division problems with whole numbers.
+- Addition: Practice addition up to 10.
+- Subtraction: Improve subtraction skills.
+- Error Handling: Incorrect answers are repeated to reinforce learning.
+- Statistics: A summary of performance is displayed at the end.
+- Customizable Session: Set time limits and select specific arithmetic operations.
+- German Language Support: All inputs and outputs are in German.
+- Linux Compatible: Executable file runs on Linux systems.
 
 ## How to Run
 
 Ubuntu Linux:
 
 ```bash
-tar -xf 1x1Pass.tar
-./1x1Pass
+# Download the file from https://github.com/suckowbiz/numberninja Releases.
+tar -xf NumberNinja.tar
+./NumberNinja
 ```
