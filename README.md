@@ -4,9 +4,15 @@ NumberNinja is a command-line math training program designed for elementary scho
 
 ![NumberNinja](./numberninja.png)
 
-## Features
+## Motivation
 
-Features
+As a parent, I wanted to provide my children with a **simple and distraction-free way to practice math** for school. Many educational apps are overloaded with unnecessary features, ads, or gamification that often take away from actual learning.
+
+**NumberNinja** was born out of the need for a **straightforward, effective, and engaging tool** that helps kids improve their arithmetic skills without distractions. By using a **repetition-based learning approach**, mistakes are not just forgotten but reinforced through practice, making learning more efficient.
+
+With a clean command-line interface, NumberNinja allows kids (and adults!) to focus on what truly matters: **mastering math skills in a fun and effective way**.
+
+## Features
 
 - Multiplication: Practice times tables from 1×1 up to 10×10.
 - Division: Solve division problems with whole numbers.
@@ -45,7 +51,7 @@ Once the program starts, you'll be guided through a series of input prompts:
 Enter a number for the minutes you want to practice (e.g., `5` for 5 minutes).
 
 
-### 2️ Select arithmetic operations
+### 2 Select arithmetic operations
 
 - Multiplication (0)
 - Division (1)
@@ -56,7 +62,7 @@ Enter a number for the minutes you want to practice (e.g., `5` for 5 minutes).
 - All operations (6)
 
 
-### 3️ Solve problems
+### 3 Solve problems
 
 The console will display a problem, for example:
 
