@@ -22,10 +22,18 @@ Features
 
 Ubuntu Linux:
 
-```bash
+```sh
 # Download the file from https://github.com/suckowbiz/numberninja Releases.
 tar -xf NumberNinja.tar
 ./NumberNinja
+```
+
+Or
+
+```shell
+git clone https://github.com/suckowbiz/numberninja.git
+cd numberninja
+go run main.go
 ```
 
 ## Usage
@@ -62,6 +70,20 @@ If you enter an incorrect answer, the problem will be repeated later.
 ### 4 Final results
 
 After the time is up, the program will display your mistake statistics.
+
+## Project Structure
+
+```plaintext
+numberninja/
+│── internal/
+│   ├── calculus/       # Arithmetic operations & problem generator
+│   ├── interaction/    # Command-line interaction
+│   ├── school/         # Lesson logic (Lesson, Observer)
+│   ├── mistakes/       # Mistake tracking (LIFO stack)
+│── main.go             # Program entry point
+│── go.mod              # Go module management
+```
+
 
 ## License
 
