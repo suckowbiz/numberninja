@@ -5,7 +5,7 @@ import (
 
 	"github.com/stretchr/testify/assert"
 
-	"github.com/suckowbiz/1x1pass/internal/calculus"
+	"github.com/suckowbiz/numberninja/internal/calculus"
 )
 
 func TestMistakes_Push(t *testing.T) {

@@ -3,7 +3,7 @@ package mistakes
 import (
 	"errors"
 
-	"github.com/suckowbiz/1x1pass/internal/calculus"
+	"github.com/suckowbiz/numberninja/internal/calculus"
 )
 
 // Mistakes implements a LIFO stack.

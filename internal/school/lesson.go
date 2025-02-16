@@ -1,8 +1,8 @@
 package school
 
 import (
-	"github.com/suckowbiz/1x1pass/internal/calculus"
-	"github.com/suckowbiz/1x1pass/internal/interaction"
+	"github.com/suckowbiz/numberninja/internal/calculus"
+	"github.com/suckowbiz/numberninja/internal/interaction"
 )
 
 // Lesson represents a school lesson.

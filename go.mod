@@ -1,4 +1,4 @@
-module github.com/suckowbiz/1x1pass
+module github.com/suckowbiz/numberninja
 
 go 1.23
 
