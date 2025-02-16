@@ -25,3 +25,7 @@ Ubuntu Linux:
 tar -xf NumberNinja.tar
 ./NumberNinja
 ```
+
+## License
+
+Licensed under MIT to allow doing anything with proper attribution and without warranty.
