@@ -2,6 +2,8 @@
 
 NumberNinja is a command-line math training program designed for elementary school students to practice basic arithmetic in German. The program supports addition, subtraction, multiplication, and division, offering a customizable and interactive experience.
 
+![NumberNinja](./numberninja.png)
+
 ## Features
 
 Features
