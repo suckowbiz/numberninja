@@ -10,7 +10,13 @@ const (
 	Subtraction
 )
 
-// Rune returns the string representation of the given arithmetic type.
+var arithmeticSymbols = map[Arithmetic]rune{
+	Multiplication: '*',
+	Division:       '/',
+	Addition:       '+',
+	Subtraction:    '-',
+}
+
 func (a Arithmetic) Rune() rune {
-	return [...]rune{'*', '/', '+', '-'}[a]
+	return arithmeticSymbols[a]
 }

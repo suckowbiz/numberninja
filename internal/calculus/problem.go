@@ -16,25 +16,18 @@ type Problem struct {
 
 // NewProblem creates a new problem of given input.
 func NewProblem(operator Arithmetic, left, right int) Problemer {
-	return [...]Problemer{
-		Multiply{Problem{
-			operator: operator.Rune(),
-			left:     left,
-			right:    right,
-		}}, Divide{Problem{
-			operator: operator.Rune(),
-			left:     left,
-			right:    right,
-		}},
-		Add{Problem{
-			operator: operator.Rune(),
-			left:     left,
-			right:    right,
-		}}, Subtract{Problem{
-			operator: operator.Rune(),
-			left:     left,
-			right:    right,
-		}}}[operator]
+	switch operator {
+	case Multiplication:
+		return Multiply{Problem{operator.Rune(), left, right}}
+	case Division:
+		return Divide{Problem{operator.Rune(), left, right}}
+	case Addition:
+		return Add{Problem{operator.Rune(), left, right}}
+	case Subtraction:
+		return Subtract{Problem{operator.Rune(), left, right}}
+	default:
+		panic("Unknown arithmetic operation")
+	}
 }
 
 // LOperand returns the left side operand.

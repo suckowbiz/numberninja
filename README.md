@@ -28,6 +28,41 @@ tar -xf NumberNinja.tar
 ./NumberNinja
 ```
 
+## Usage
+
+Once the program starts, you'll be guided through a series of input prompts:
+
+### 1 Set the duration of the exercise
+
+Enter a number for the minutes you want to practice (e.g., `5` for 5 minutes).
+
+
+### 2️ Select arithmetic operations
+
+- Multiplication (0)
+- Division (1)
+- Addition (2)
+- Subtraction (3)
+- Multiplication and Division (4)
+- Addition and Subtraction (5)
+- All operations (6)
+
+
+### 3️ Solve problems
+
+The console will display a problem, for example:
+
+```bash
+ 1) 8 * 3 =  
+```
+
+Enter the correct answer and press `Enter`.  
+If you enter an incorrect answer, the problem will be repeated later.
+
+### 4 Final results
+
+After the time is up, the program will display your mistake statistics.
+
 ## License
 
 Licensed under MIT to allow doing anything with proper attribution and without warranty.

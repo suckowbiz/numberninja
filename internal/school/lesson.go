@@ -18,28 +18,23 @@ func NewLesson() Lesson {
 func (l Lesson) Run(io interaction.CmdLiner, observer Observable, mode interaction.Mode) {
 	var problem calculus.Problemer
 	io.PrintStart()
+
+	var arithmeticOps = map[interaction.Mode][]calculus.Arithmetic{
+		interaction.Multiplication:            {calculus.Multiplication},
+		interaction.Division:                  {calculus.Division},
+		interaction.Addition:                  {calculus.Addition},
+		interaction.Subtraction:               {calculus.Subtraction},
+		interaction.MultiplicationAndDivision: {calculus.Multiplication, calculus.Division},
+		interaction.AdditionAndSubtraction:    {calculus.Addition, calculus.Subtraction},
+		interaction.All:                       {calculus.Multiplication, calculus.Division, calculus.Addition, calculus.Subtraction},
+	}
+
 	for {
 		observer.RoundTick()
 		if observer.RepeatRound() {
 			problem, _ = observer.PopMissed()
 		} else {
-			switch mode {
-			case interaction.Multiplication:
-				problem = calculus.GenerateProblem([]calculus.Arithmetic{calculus.Multiplication})
-			case interaction.Addition:
-				problem = calculus.GenerateProblem([]calculus.Arithmetic{calculus.Addition})
-			case interaction.Subtraction:
-				problem = calculus.GenerateProblem([]calculus.Arithmetic{calculus.Subtraction})
-			case interaction.Division:
-				problem = calculus.GenerateProblem([]calculus.Arithmetic{calculus.Division})
-			case interaction.MultiplicationAndDivision:
-				problem = calculus.GenerateProblem([]calculus.Arithmetic{calculus.Multiplication, calculus.Division})
-			case interaction.AdditionAndSubtraction:
-				problem = calculus.GenerateProblem([]calculus.Arithmetic{calculus.Addition, calculus.Subtraction})
-			case interaction.All:
-				problem = calculus.GenerateProblem([]calculus.Arithmetic{calculus.Multiplication, calculus.Division, calculus.Addition,
-					calculus.Subtraction})
-			}
+			problem = calculus.GenerateProblem(arithmeticOps[mode])
 		}
 
 		answer := io.AskProblem(observer.Rounds(), problem.Operator(), problem.LOperand(), problem.ROperand())
